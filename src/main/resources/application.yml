@@ -7,6 +7,14 @@ spring:
     username: root
     password: 123456
 jwt:
-  secret-key: zzzlew
+  secret-key: qwertyuiopasdfghjklzxcvbnmzzzlew
   expiration: 7200000
   token-name: Authorization
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.zzzlew.pojo
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true

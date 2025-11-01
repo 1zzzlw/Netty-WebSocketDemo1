@@ -8,6 +8,7 @@ import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.annotation.Resource;
+import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -21,7 +22,7 @@ import java.util.Map;
  * @Description: com.zzzlew.utils
  * @version: 1.0
  */
-
+@Component
 public class JwtUtil {
 
     @Resource

@@ -7,7 +7,4 @@ package com.zzzlew.exception;
  * @version: 1.0
  */
 public class TokenException extends RuntimeException {
-    public TokenException(String message) {
-        super(message);
-    }
 }

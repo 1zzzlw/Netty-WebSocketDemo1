@@ -1,12 +1,16 @@
 package com.zzzlew;
 
-import com.zzzlew.netty.CoordinationNettyServer;
-import jakarta.annotation.Resource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.zzzlew.netty.CoordinationNettyServer;
+
+import jakarta.annotation.Resource;
+
 @SpringBootApplication
+@MapperScan("com.zzzlew.mapper")
 public class NettyWebSocketApplication implements CommandLineRunner {
 
     @Resource
