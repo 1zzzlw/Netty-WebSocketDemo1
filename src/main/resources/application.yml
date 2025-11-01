@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/netty_webChat?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+jwt:
+  secret-key: zzzlew
+  expiration: 7200000
+  token-name: Authorization
