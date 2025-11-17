@@ -1,8 +1,11 @@
 package com.zzzlew.netty;
 
+import org.springframework.context.annotation.Configuration;
+
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
@@ -12,7 +15,6 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import jakarta.annotation.Resource;
-import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CoordinationNettyServer {
@@ -25,7 +27,7 @@ public class CoordinationNettyServer {
         try {
             ServerBootstrap sb = new ServerBootstrap();
             // TODO 用于设置 TCP 连接的 半连接队列（backlog）大小
-            // sb.option(ChannelOption.SO_BACKLOG, 1024);
+            sb.option(ChannelOption.SO_BACKLOG, 1024);
             sb.group(group, bossGroup) // 绑定线程池
                 .channel(NioServerSocketChannel.class) // 指定使用的channel
                 .localAddress(8004)// 绑定监听端口

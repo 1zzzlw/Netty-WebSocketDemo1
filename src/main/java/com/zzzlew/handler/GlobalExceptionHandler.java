@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public Object exceptionHandler(HttpServletRequest req, Exception e) {
+        e.printStackTrace();
         log.error("异常信息：{}", e.getMessage());
         // 创建全局的Token异常类
         if (e instanceof TokenException) {

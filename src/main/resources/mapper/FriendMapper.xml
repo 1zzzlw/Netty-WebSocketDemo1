@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzlew.mapper.FriendMapper">
+    <select id="getFriendByUserId" resultType="com.zzzlew.pojo.User">
+        select u.image, u.id, u.username
+        from friend f
+                 join user u on u.id = f.fid
+        where f.uid = #{id}
+    </select>
+
+    <insert id="add">
+        insert into friend(uid, fid)
+        values (#{uid}, #{fid})
+    </insert>
+
+</mapper>

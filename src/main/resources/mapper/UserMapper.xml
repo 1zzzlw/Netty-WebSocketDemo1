@@ -4,8 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzzlew.mapper.UserMapper">
 
-    <select id="getUserByUsername" resultType="com.zzzlew.pojo.User"
-            parameterType="java.lang.String">
+    <select id="getUserByUsername" resultType="com.zzzlew.pojo.User">
         select *
         from user
         where username = #{username}

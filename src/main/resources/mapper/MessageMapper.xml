@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzzlew.mapper.MessageMapper">
+    <select id="list" resultType="java.util.Map">
+        select a.*
+        from (select m.*, u.image
+              from message m
+                       left join user u on m.`from` = u.id
+              where m.`from` = #{from}
+                and m.`to` = #{to}
+              union
+              select m.*, u.image
+              from message m
+                       left join user u on m.`from` = u.id
+              where m.`from` = #{to}
+                and m.`to` = #{from}) a
+        order by a.time
+    </select>
+
+    <insert id="send" parameterType="com.zzzlew.pojo.Message">
+        insert into message(`from`, `to`, `type`, `content`, `time`)
+        values (#{from}, #{to}, #{type}, #{content}, #{time})
+    </insert>
+
+</mapper>
